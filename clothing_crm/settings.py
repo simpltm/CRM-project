@@ -94,10 +94,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'static']  # bu sizdagi "source" papka
+STATIC_ROOT = BASE_DIR / 'staticfiles'    # bu esa target papka (serve qilinadigan)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Media files
 MEDIA_URL = '/media/'
