@@ -54,17 +54,17 @@
                             <span>REPORTS</span>
                         </a>
                     </li>
+
+                    {% if user.is_superuser %}
+                    <li class="{% if '/admin/' in request.path %}active{% endif %}">
+                        <a href="{% url 'admin:index' %}">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>ADMIN</span>
+                        </a>
+                    </li>
+                    {% endif %}
                 </ul>
             </nav>
-
-            <div class="sidebar-section">
-                <h3>SETTINGS</h3>
-                <ul>
-                    <li><a href="#">PROFILE</a></li>
-                    <li><a href="#">PREFERENCES</a></li>
-                    <li><a href="{% url 'accounts:logout' %}">LOGOUT</a></li>
-                </ul>
-            </div>
         </aside>
 
         <!-- Main Content -->
@@ -77,20 +77,11 @@
                     </form>
                 </div>
                 <div class="user-actions">
-                    <a href="#" class="notification-icon">
-                        <i class="fas fa-bell"></i>
-                        <span class="badge">3</span>
-                    </a>
-                    <a href="#" class="settings-icon">
-                        <i class="fas fa-cog"></i>
-                    </a>
-                    <a href="#" class="mail-icon">
-                        <i class="fas fa-envelope"></i>
-                    </a>
                     <div class="user-profile">
                         {% if user.is_authenticated %}
-                            <span>{{ user.username }}</span>
-                            <img src="{% static 'img/user-avatar.png' %}" alt="User Avatar">
+                            <div class="user-avatar-initial blue-bg">
+                                {{ user.username|upper }}
+                            </div>
                         {% else %}
                             <span>LOGIN</span>
                             <a href="{% url 'accounts:login' %}">
