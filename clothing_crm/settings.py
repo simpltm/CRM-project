@@ -117,3 +117,4 @@ LOGIN_REDIRECT_URL = 'dashboard:index'
 LOGOUT_REDIRECT_URL = 'accounts:login'
 
 
+ALLOWED_HOSTS = ['clouthingwms.uz', 'www.clouthingwms.uz', '51.21.243.213']
