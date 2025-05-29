@@ -14,14 +14,14 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1>Dashboard</h1>
+                <h1>WMS</h1>
             </div>
             <nav class="sidebar-nav">
                 <ul>
                     <li class="{% if request.path == '/' %}active{% endif %}">
                         <a href="{% url 'dashboard:index' %}">
                             <i class="fas fa-tachometer-alt"></i>
-                            <span>DASHBOARD</span>
+                            <span>WMS</span>
                         </a>
                     </li>
                     <li class="{% if '/products/' in request.path %}active{% endif %}">
